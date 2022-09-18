@@ -1,11 +1,12 @@
-import Button from "react-bootstrap/Button";
-import './App.css';
+
+import styles from './App.module.css';
+import NavBar from './components/NavBar';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Welcome to Body Doodles</h1>
-      <Button variant="primary">Test Button</Button>
+    <div className={styles.App}>
+      <NavBar />
+      
     </div>
   );
 }
