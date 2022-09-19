@@ -8,10 +8,13 @@
 }
 
 .Content {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    color: white;
+    background-color: black;
     padding: 10px;
-    border-radius: 2px;
-    border: 1px solid #dadadf;
+    border-radius: 10px;
+    border: 3px solid #cca53c;
+    /* border-color: #cca53c; */
 }
 
 .FillerImage {
