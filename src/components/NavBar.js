@@ -14,8 +14,8 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto text-left">
+        <Navbar.Collapse  id="basic-navbar-nav">
+          <Nav className="ml-auto text-right">
             <NavLink
               exact
               className={styles.NavLink}

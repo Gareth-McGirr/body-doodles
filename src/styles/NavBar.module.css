@@ -1,5 +1,11 @@
 .NavBar {
   background-color: black;
+  color: white;
+}
+
+.NavBar button{
+  background-color: #cca53c;
+  
 }
 
 .NavLink {
