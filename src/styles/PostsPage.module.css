@@ -10,9 +10,10 @@
     font-size: 1.2rem;
     padding: 9px;
     padding-left: 15px;
+    color: #cfced3;
 }
 
 .SearchIcon:hover {
     cursor: default;
-    color: #cfced3;
+    color: #cca53c;
 }
