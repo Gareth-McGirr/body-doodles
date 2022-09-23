@@ -31,7 +31,7 @@ const PopularProfiles = ({ mobile }) => {
     };
 
     handleMount();
-  }, [currentUser]);
+  }, [currentUser, profileData]);
 
   return (
     <Container
