@@ -25,6 +25,9 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import axios from "axios";
+import { axiosRes } from "../../api/axiosDefaults";
+
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -32,12 +35,22 @@ function ProfilePage() {
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
+  
 
   const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
 
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
+
+  const handleDeleteArtist = async () => {
+    const artistId = profile.artistId
+    try {
+      await axios.delete(`/artists/${artistId}/`);
+      await axiosRes.put(`/profiles/${id}/`, {artistId: null,}); 
+      console.log(artistId);
+    } catch (err) {}
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,7 +75,7 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
-      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} handleDeleteArtist={handleDeleteArtist} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -106,6 +119,7 @@ function ProfilePage() {
                 follow
               </Button>
             ))}
+            
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
@@ -144,6 +158,12 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                onClick={handleDeleteArtist}
+              >
+              remove as artist 
+          </Button>
               {mainProfilePosts}
             </>
           ) : (

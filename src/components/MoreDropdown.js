@@ -2,6 +2,8 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useHistory } from "react-router-dom";
 import styles from "../styles/MoreDropdown.module.css";
+import axios from "axios";
+import { axiosRes } from "../api/axiosDefaults";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -40,8 +42,10 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => (
   </Dropdown>
 );
 
-export const ProfileEditDropdown = ({ id }) => {
+export const ProfileEditDropdown = ({ id, handleDeleteArtist }) => {
   const history = useHistory();
+  
+  
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
@@ -67,6 +71,20 @@ export const ProfileEditDropdown = ({ id }) => {
         >
           <i className="fas fa-key" />
           change password
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={() => history.push("/artists/create")}
+          aria-label="add-artist"
+        >
+          <i className="fas fa-plus-square" />
+          register as artist
+        </Dropdown.Item>
+        <Dropdown.Item
+          onClick={handleDeleteArtist}
+          aria-label="add-artist"
+        >
+          <i className="fas fa-minus-square" />
+          unregister as artist
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
