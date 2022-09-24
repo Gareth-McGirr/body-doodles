@@ -27,11 +27,13 @@ import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import axios from "axios";
 import { axiosRes } from "../../api/axiosDefaults";
+import Artist from "../artists/Artist";
 
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
+  const [artistData, setArtistData] = useState(null);
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -42,36 +44,52 @@ function ProfilePage() {
 
   const [profile] = pageProfile.results;
   const is_owner = currentUser?.username === profile?.owner;
+  const artistId = profile?.artistId;
 
   const handleDeleteArtist = async () => {
-    const artistId = profile.artistId
+    
     try {
       await axios.delete(`/artists/${artistId}/`);
       await axiosRes.put(`/profiles/${id}/`, {artistId: null,}); 
-      console.log(artistId);
+      setArtistData(null);
     } catch (err) {}
   };
 
   useEffect(() => {
-    const fetchData = async () => {
+    
+    const handleMount = async () => {
       try {
         const [{ data: pageProfile }, { data: profilePosts }] =
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
+            
           ]);
+        console.log('running first setArtistData in fetchData');
+        setArtistData(null)
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfilePosts(profilePosts);
+        try {
+        
+          const { data } = await axiosReq.get(`/artists/${profile.artistId}/`);
+          console.log('running second setArtistData in fetchData');
+          setArtistData(data);
+        } catch (err) {
+          console.log(err);
+        }
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }
+      
+      
+      
     };
-    fetchData();
-  }, [id, setProfileData]);
+    handleMount();
+  }, [id, setProfileData, artistId]);
 
   const mainProfile = (
     <>
@@ -86,6 +104,7 @@ function ProfilePage() {
         </Col>
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
+          {profile?.artistId && <p>I am an artist</p>}
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
               <div>{profile?.posts_count}</div>
@@ -128,9 +147,7 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
-      <hr />
-      <p className="text-center">{profile?.owner}'s posts</p>
-      <hr />
+      
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
@@ -164,6 +181,8 @@ function ProfilePage() {
               >
               remove as artist 
           </Button>
+          {artistData && <Artist {...artistData} isProfilePage={true} />}
+
               {mainProfilePosts}
             </>
           ) : (

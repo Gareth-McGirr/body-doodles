@@ -10,13 +10,13 @@ import Avatar from "../../components/Avatar";
 
 const Artist = (props) => {
   const {
-    id,
     owner,
     profile_id,
     profile_image,
     speciality,
     hourly_rate,
     location,
+    isProfilePage
   } = props;
 
   const currentUser = useCurrentUser();
@@ -26,12 +26,15 @@ const Artist = (props) => {
   return (
     <Card className={styles.Post}>
       <Card.Body>
+      {!isProfilePage &&
         <Media className="align-items-center justify-content-between">
+        
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
         </Media>
+      }
         <p className="text-center">Speciality: {speciality}</p>
         <p className="text-center">Location: {location}</p>
         <p className="text-center">Rate: €{hourly_rate} per hour</p>

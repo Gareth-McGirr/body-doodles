@@ -71,7 +71,7 @@ function ArtistsPage({ message, filter = "" }) {
             {artists.results.length ? (
               <InfiniteScroll
                 children={artists.results.map((artist) => (
-                  <Artist key={artist.id} {...artist} />
+                  <Artist key={artist.id} {...artist} isProfilePage={false} />
                 ))}
                 dataLength={artists.results.length}
                 loader={<Asset spinner />}
