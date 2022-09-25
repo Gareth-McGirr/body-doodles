@@ -1,22 +1,24 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
 
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-
+import { Button } from "react-bootstrap";
 
 const Artist = (props) => {
   const {
     owner,
+    id,
     profile_id,
     profile_image,
     speciality,
     hourly_rate,
     location,
-    isProfilePage
+    isProfilePage,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -26,21 +28,35 @@ const Artist = (props) => {
   return (
     <Card className={styles.Post}>
       <Card.Body>
-      {!isProfilePage &&
-        <Media className="align-items-center justify-content-between">
-        
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} />
-            {owner}
-          </Link>
-        </Media>
-      }
+        {!isProfilePage && (
+          <Media className="align-items-center justify-content-between">
+            <Link to={`/profiles/${profile_id}`}>
+              <Avatar src={profile_image} height={55} />
+              {owner}
+            </Link>
+          </Media>
+        )}
         <p className="text-center">Speciality: {speciality}</p>
         <p className="text-center">Location: {location}</p>
         <p className="text-center">Rate: €{hourly_rate} per hour</p>
+        {!is_owner && (
+          <Button
+            className={btnStyles.Button}
+            onClick={() => history.push(`/reviews/${id}/create`)}
+            aria-label="create-review"
+          >
+            Leave a review
+          </Button>
+        )}
 
+        <Button
+          className={btnStyles.Button}
+          onClick={() => history.push(`/reviews/${id}`)}
+          aria-label="create-review"
+        >
+          Artist Reviews
+        </Button>
       </Card.Body>
-      
     </Card>
   );
 };

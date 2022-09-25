@@ -2,8 +2,7 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import { useHistory } from "react-router-dom";
 import styles from "../styles/MoreDropdown.module.css";
-import axios from "axios";
-import { axiosRes } from "../api/axiosDefaults";
+
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
