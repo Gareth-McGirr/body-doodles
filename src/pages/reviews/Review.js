@@ -3,7 +3,7 @@ import Media from "react-bootstrap/Media";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
-
+import { Rating } from 'react-simple-star-rating'
 
 const Review = (props) => {
   const {
@@ -31,7 +31,7 @@ const Review = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
-          <p>Rating: {rating}</p>
+          <p>Rating: <Rating readonly={true} initialValue={rating} size={25}/* Available Props */ /></p>
           <p>Review: {content}</p>
         </Media.Body>
       </Media>

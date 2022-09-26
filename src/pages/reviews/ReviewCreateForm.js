@@ -12,6 +12,7 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 import { useParams } from "react-router";
+import { Rating } from 'react-simple-star-rating'
 
 function ReviewCreateForm(props) {
   useRedirect("loggedOut");
@@ -20,12 +21,18 @@ function ReviewCreateForm(props) {
   const [reviewData, setReviewData] = useState({
     artistId: id,
     content: "",
-    rating: "",
   });
-  const { artistId, content, rating } = reviewData;
+  const { artistId, content } = reviewData;
 
   
   const history = useHistory();
+
+  const [rating, setRating] = useState(0) // initial rating value
+
+  // Catch Rating value
+  const handleRating = (rate) => {
+    setRating(rate/20)
+  }
 
   const handleChange = (event) => {
     setReviewData({
@@ -56,7 +63,7 @@ function ReviewCreateForm(props) {
 
   const textFields = (
     <div className="text-center">
-      <Form.Group>
+      {/* <Form.Group>
         <Form.Label>Rating</Form.Label>
         <Form.Control
           type="text"
@@ -69,8 +76,10 @@ function ReviewCreateForm(props) {
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
-      ))}
-
+      ))} */}
+      <Form.Group>
+        <Rating onClick={handleRating}  /* Available Props */ />
+      </Form.Group>
       <Form.Group>
         <Form.Label>Content</Form.Label>
         <Form.Control
