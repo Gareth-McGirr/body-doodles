@@ -22,6 +22,7 @@ const Artist = (props) => {
     reviews_count,
     average_rating,
     isProfilePage,
+    showAll
   } = props;
 
   const currentUser = useCurrentUser();
@@ -56,7 +57,7 @@ const Artist = (props) => {
             Leave a review
           </Button>
         )}
-        {isProfilePage && (
+        {showAll &&(
           <Button
             className={btnStyles.Button}
             onClick={() => history.push(`/reviews/${id}`)}

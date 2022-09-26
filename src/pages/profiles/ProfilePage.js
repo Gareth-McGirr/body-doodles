@@ -183,7 +183,7 @@ function ProfilePage() {
               >
               remove as artist 
           </Button>
-          {artistData && <Artist {...artistData} isProfilePage={true} />}
+          {artistData && <Artist {...artistData} isProfilePage={true} showAll/>}
 
               {mainProfilePosts}
             </>
