@@ -8,6 +8,7 @@ import Media from "react-bootstrap/Media";
 import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { Button } from "react-bootstrap";
+import { Rating } from "react-simple-star-rating";
 
 const Artist = (props) => {
   const {
@@ -18,6 +19,8 @@ const Artist = (props) => {
     speciality,
     hourly_rate,
     location,
+    reviews_count,
+    average_rating,
     isProfilePage,
   } = props;
 
@@ -39,6 +42,11 @@ const Artist = (props) => {
         <p className="text-center">Speciality: {speciality}</p>
         <p className="text-center">Location: {location}</p>
         <p className="text-center">Rate: €{hourly_rate} per hour</p>
+        <p className="text-center">
+          Ratng:{" "}
+          <Rating readonly={true} initialValue={average_rating} size={25} />
+        </p>
+        <p>{reviews_count} reviews</p>
         {!is_owner && (
           <Button
             className={btnStyles.Button}
@@ -48,14 +56,15 @@ const Artist = (props) => {
             Leave a review
           </Button>
         )}
-
-        <Button
-          className={btnStyles.Button}
-          onClick={() => history.push(`/reviews/${id}`)}
-          aria-label="create-review"
-        >
-          Artist Reviews
-        </Button>
+        {isProfilePage && (
+          <Button
+            className={btnStyles.Button}
+            onClick={() => history.push(`/reviews/${id}`)}
+            aria-label="view-reviews"
+          >
+            Artist Reviews
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );
