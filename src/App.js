@@ -19,6 +19,7 @@ import ArtistsPage from "./pages/artists/ArtistsPage";
 import ArtistCreateForm from "./pages/artists/ArtistCreateForm";
 import ReviewsPage from "./pages/reviews/ReviewsPage";
 import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
+import ContactCreateForm from "./pages/contacts/ContactCreateForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -120,6 +121,11 @@ function App() {
             exact
             path="/reviews/:id/create/"
             render={() => <ReviewCreateForm />}
+          />
+          <Route
+            exact
+            path="/contacts/create/"
+            render={() => <ContactCreateForm />}
           />
           
           <Route render={() => <NotFound />} />

@@ -14,18 +14,21 @@ const Profile = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
-  const {handleFollow, handleUnfollow} = useSetProfileData();
+  const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (
     <div
       className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
     >
       <div>
-        <Link className="align-self-center" to={`/profiles/${id}`}>
+        <Link className="align-self-center d-block" to={`/profiles/${id}`}>
           <Avatar src={image} height={imageSize} />
         </Link>
       </div>
-      <div className={`mx-2 ${styles.WordBreak}`}>
+      <div className={`mx-2 flex-column ${styles.WordBreak}`}>
+        {profile.artistId && (
+          <span className="align-self-center d-block"><small>*Artist*</small></span>
+        )}
         <strong>{owner}</strong>
       </div>
       <div className={`text-right ${!mobile && "ml-auto"}`}>

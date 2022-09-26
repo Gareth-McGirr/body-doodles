@@ -44,7 +44,7 @@ const Artist = (props) => {
         <p className="text-center">Location: {location}</p>
         <p className="text-center">Rate: €{hourly_rate} per hour</p>
         <p className="text-center">
-          Ratng:{" "}
+          Rating:{" "}
           <Rating readonly={true} initialValue={average_rating} size={25} />
         </p>
         <p>{reviews_count} reviews</p>
