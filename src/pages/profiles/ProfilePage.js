@@ -178,21 +178,26 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
-              <Button className={btnStyles.Button} onClick={handleShow}>
-                remove as artist
-              </Button>
+              {profile?.artistId && is_owner && (
+                <Button className={btnStyles.Button} onClick={handleShow}>
+                  remove as artist
+                </Button>
+              )}
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                   <Modal.Title>Confirm Delete</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  Are you sure you want to delete your artist profile? 
+                  Are you sure you want to delete your artist profile?
                 </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleClose}>
                     Cancel
                   </Button>
-                  <Button className={btnStyles.Button} onClick={handleDeleteArtist}>
+                  <Button
+                    className={btnStyles.Button}
+                    onClick={handleDeleteArtist}
+                  >
                     Confirm
                   </Button>
                 </Modal.Footer>
