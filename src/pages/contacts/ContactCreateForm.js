@@ -7,15 +7,13 @@ import Alert from "react-bootstrap/Alert";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory } from "react-router";
-import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 
 function ContactCreateForm(props) {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
-  const currentUser = useCurrentUser();
-  const id = currentUser?.profile_id
 
   const [contactData, setContactData] = useState({
     reason: "",
@@ -41,7 +39,7 @@ function ContactCreateForm(props) {
     formData.append("content", content);
 
     try {
-      const { data } = await axiosReq.post("/contacts/", formData);
+      await axiosReq.post("/contacts/", formData);
       history.goBack();
     } catch (err) {
       // console.log(err);

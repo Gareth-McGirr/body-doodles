@@ -19,6 +19,8 @@ const Artist = (props) => {
     speciality,
     hourly_rate,
     location,
+    email,
+    phone,
     reviews_count,
     average_rating,
     isProfilePage,
@@ -43,6 +45,8 @@ const Artist = (props) => {
         <p className="text-center">Speciality: {speciality}</p>
         <p className="text-center">Location: {location}</p>
         <p className="text-center">Rate: €{hourly_rate} per hour</p>
+        <p className="text-center">Email: {email}</p>
+        <p className="text-center">Phone: {phone}</p>
         <p className="text-center">
           Rating:{" "}
           <Rating readonly={true} initialValue={average_rating} size={25} />

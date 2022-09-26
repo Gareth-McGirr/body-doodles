@@ -15,14 +15,16 @@ function ArtistCreateForm(props) {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const currentUser = useCurrentUser();
-  const id = currentUser?.profile_id
+  const id = currentUser?.profile_id;
 
   const [artistData, setArtistData] = useState({
     speciality: "",
     hourly_rate: 0,
     location: "",
+    email: "",
+    phone: "",
   });
-  const { speciality, hourly_rate, location } = artistData;
+  const { speciality, hourly_rate, location, email, phone} = artistData;
 
   const history = useHistory();
 
@@ -40,10 +42,12 @@ function ArtistCreateForm(props) {
     formData.append("speciality", speciality);
     formData.append("hourly_rate", hourly_rate);
     formData.append("location", location);
+    formData.append("email", email);
+    formData.append("phone", phone);
 
     try {
       const { data } = await axiosReq.post("/artists/", formData);
-      await axiosRes.put(`/profiles/${id}/`, {artistId: data.id,});
+      await axiosRes.put(`/profiles/${id}/`, { artistId: data.id });
       history.goBack();
     } catch (err) {
       // console.log(err);
@@ -73,8 +77,7 @@ function ArtistCreateForm(props) {
       <Form.Group>
         <Form.Label>Rate Per Hour</Form.Label>
         <Form.Control
-          as="textarea"
-          rows={6}
+          type="number"
           name="hourly_rate"
           value={hourly_rate}
           onChange={handleChange}
@@ -89,7 +92,7 @@ function ArtistCreateForm(props) {
       <Form.Group>
         <Form.Label>Location</Form.Label>
         <Form.Control
-          as="textarea"
+          type="text"
           rows={6}
           name="location"
           value={location}
@@ -102,10 +105,37 @@ function ArtistCreateForm(props) {
         </Alert>
       ))}
 
-      <Button
-        className={btnStyles.Button}
-        onClick={() => history.goBack()}
-      >
+      <Form.Group>
+        <Form.Label>Email address</Form.Label>
+        <Form.Control
+          type="email"
+          name="email"
+          value={email}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+        <Form.Label>Contact number</Form.Label>
+        <Form.Control
+          type="tel"
+          name="phone"
+          value={phone}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Button className={btnStyles.Button} onClick={() => history.goBack()}>
         cancel
       </Button>
       <Button className={btnStyles.Button} type="submit">

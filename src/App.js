@@ -124,7 +124,7 @@ function App() {
           />
           <Route
             exact
-            path="/contacts/create/"
+            path="/contact/create/"
             render={() => <ContactCreateForm />}
           />
           
