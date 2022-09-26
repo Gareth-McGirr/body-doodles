@@ -28,7 +28,7 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import axios from "axios";
 import { axiosRes } from "../../api/axiosDefaults";
 import Artist from "../artists/Artist";
-
+import Modal from "react-bootstrap/Modal";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -37,7 +37,6 @@ function ProfilePage() {
 
   const currentUser = useCurrentUser();
   const { id } = useParams();
-  
 
   const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
   const { pageProfile } = useProfileData();
@@ -46,24 +45,27 @@ function ProfilePage() {
   const is_owner = currentUser?.username === profile?.owner;
   const artistId = profile?.artistId;
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const handleDeleteArtist = async () => {
-    
     try {
       await axios.delete(`/artists/${artistId}/`);
-      await axiosRes.put(`/profiles/${id}/`, {artistId: null,}); 
+      await axiosRes.put(`/profiles/${id}/`, { artistId: null });
       setArtistData(null);
     } catch (err) {}
+    handleClose();
   };
 
   useEffect(() => {
-    
     const handleMount = async () => {
       try {
         const [{ data: pageProfile }, { data: profilePosts }] =
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
             axiosReq.get(`/posts/?owner__profile=${id}`),
-            
           ]);
         // console.log('running first setArtistData in fetchData');
         // setArtistData(null)
@@ -73,29 +75,30 @@ function ProfilePage() {
         }));
         setProfilePosts(profilePosts);
         try {
-        
           const { data } = await axiosReq.get(`/artists/${artistId}/`);
-          console.log('running second setArtistData in fetchData');
+          console.log("running second setArtistData in fetchData");
           setArtistData(data);
         } catch (err) {
-          setArtistData(null)
+          setArtistData(null);
           console.log(err);
         }
         setHasLoaded(true);
       } catch (err) {
-        setArtistData(null)
+        setArtistData(null);
         console.log(err);
       }
-      
-      
-      
     };
     handleMount();
   }, [id, setProfileData, artistId]);
 
   const mainProfile = (
     <>
-      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} handleDeleteArtist={handleDeleteArtist} />}
+      {profile?.is_owner && (
+        <ProfileEditDropdown
+          id={profile?.id}
+          handleDeleteArtist={handleDeleteArtist}
+        />
+      )}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -140,7 +143,6 @@ function ProfilePage() {
                 follow
               </Button>
             ))}
-            
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
@@ -149,7 +151,6 @@ function ProfilePage() {
 
   const mainProfilePosts = (
     <>
-      
       {profilePosts.results.length ? (
         <InfiniteScroll
           children={profilePosts.results.map((post) => (
@@ -177,13 +178,28 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={handleDeleteArtist}
-              >
-              remove as artist 
-          </Button>
-          {artistData && <Artist {...artistData} isProfilePage={true} showAll/>}
+              <Button className={btnStyles.Button} onClick={handleShow}>
+                remove as artist
+              </Button>
+              <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Confirm Delete</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  Are you sure you want to delete your artist profile? 
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Cancel
+                  </Button>
+                  <Button className={btnStyles.Button} onClick={handleDeleteArtist}>
+                    Confirm
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+              {artistData && (
+                <Artist {...artistData} isProfilePage={true} showAll />
+              )}
 
               {mainProfilePosts}
             </>
