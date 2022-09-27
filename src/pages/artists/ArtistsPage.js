@@ -30,7 +30,7 @@ function ArtistsPage({ message, filter = "" }) {
   useEffect(() => {
     const fetchArtists = async () => {
       try {
-        const { data } = await axiosReq.get("/artists/");
+        const { data } = await axiosReq.get(`/artists/?${filter}search=${query}`);
         setArtists(data);
         setHasLoaded(true);
       } catch (err) {
@@ -46,7 +46,7 @@ function ArtistsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [pathname, currentUser]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
@@ -62,7 +62,7 @@ function ArtistsPage({ message, filter = "" }) {
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
-            placeholder="Search posts"
+            placeholder="Search artist by name, location or speciality"
           />
         </Form>
 
