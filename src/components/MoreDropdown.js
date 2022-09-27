@@ -3,7 +3,6 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { useHistory } from "react-router-dom";
 import styles from "../styles/MoreDropdown.module.css";
 
-
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
@@ -16,6 +15,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
     }}
   />
 ));
+ThreeDots.displayName = "ThreeDots";
 
 export const MoreDropdown = ({ handleEdit, handleDelete }) => (
   <Dropdown className="ml-auto" drop="left">
@@ -43,8 +43,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => (
 
 export const ProfileEditDropdown = ({ id, handleDeleteArtist }) => {
   const history = useHistory();
-  
-  
+
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />

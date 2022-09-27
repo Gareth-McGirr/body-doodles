@@ -4,6 +4,11 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
+import { useParams } from "react-router";
+import { Button, Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import axios from "axios";
+import Modal from "react-bootstrap/Modal";
 import Asset from "../../components/Asset";
 
 import styles from "../../styles/ProfilePage.module.css";
@@ -12,25 +17,20 @@ import btnStyles from "../../styles/Button.module.css";
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useParams } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
-import { Button, Image } from "react-bootstrap";
-import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "../posts/Post";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
-import axios from "axios";
-import { axiosRes } from "../../api/axiosDefaults";
-import Artist from "../artists/Artist";
-import Modal from "react-bootstrap/Modal";
 
-function ProfilePage() {
+import Artist from "../artists/Artist";
+
+const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profilePosts, setProfilePosts] = useState({ results: [] });
   const [artistData, setArtistData] = useState(null);
@@ -62,11 +62,10 @@ function ProfilePage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: pageProfile }, { data: profilePosts }] =
-          await Promise.all([
-            axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/posts/?owner__profile=${id}`),
-          ]);
+        const [{ data: pageProfile }, { data: profilePosts }] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/posts/?owner__profile=${id}`),
+        ]);
         // console.log('running first setArtistData in fetchData');
         // setArtistData(null)
         setProfileData((prevState) => ({
@@ -126,9 +125,9 @@ function ProfilePage() {
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
-          {currentUser &&
-            !is_owner &&
-            (profile?.following_id ? (
+          {currentUser
+            && !is_owner
+            && (profile?.following_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
                 onClick={() => handleUnfollow(profile)}
@@ -203,7 +202,7 @@ function ProfilePage() {
                 </Modal.Footer>
               </Modal>
               {artistData && (
-                <Artist {...artistData} isProfilePage={true} showAll />
+                <Artist {...artistData} isProfilePage showAll />
               )}
 
               {mainProfilePosts}
@@ -218,6 +217,6 @@ function ProfilePage() {
       </Col>
     </Row>
   );
-}
+};
 
 export default ProfilePage;

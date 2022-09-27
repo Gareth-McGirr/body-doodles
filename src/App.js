@@ -1,7 +1,8 @@
-import styles from "./App.module.css";
-import NavBar from "./components/NavBar";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import { Route, Switch } from "react-router-dom";
+import styles from "./App.module.css";
+import NavBar from "./components/NavBar";
 import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
@@ -21,7 +22,7 @@ import ReviewsPage from "./pages/reviews/ReviewsPage";
 import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
 import ContactCreateForm from "./pages/contacts/ContactCreateForm";
 
-function App() {
+const App = () => {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
 
@@ -57,35 +58,35 @@ function App() {
               />
             )}
           />
-          <Route 
-            exact 
-            path="/signin" 
-            render={() => <SignInForm />} 
+          <Route
+            exact
+            path="/signin"
+            render={() => <SignInForm />}
           />
-          <Route 
-            exact 
-            path="/signup" 
-            render={() => <SignUpForm />} 
+          <Route
+            exact
+            path="/signup"
+            render={() => <SignUpForm />}
           />
-          <Route 
-            exact 
-            path="/posts/create" 
-            render={() => <PostCreateForm />} 
+          <Route
+            exact
+            path="/posts/create"
+            render={() => <PostCreateForm />}
           />
-          <Route 
-            exact 
-            path="/posts/:id" 
-            render={() => <PostPage />} 
+          <Route
+            exact
+            path="/posts/:id"
+            render={() => <PostPage />}
           />
-          <Route 
-            exact 
-            path="/posts/:id/edit" 
-            render={() => <PostEditForm />} 
+          <Route
+            exact
+            path="/posts/:id/edit"
+            render={() => <PostEditForm />}
           />
-          <Route 
-            exact 
-            path="/profiles/:id" 
-            render={() => <ProfilePage />} 
+          <Route
+            exact
+            path="/profiles/:id"
+            render={() => <ProfilePage />}
           />
           <Route
             exact
@@ -127,12 +128,12 @@ function App() {
             path="/contact/create/"
             render={() => <ContactCreateForm />}
           />
-          
+
           <Route render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>
   );
-}
+};
 
 export default App;

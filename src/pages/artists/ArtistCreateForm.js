@@ -4,14 +4,14 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
+import { useHistory } from "react-router-dom";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { useHistory } from "react-router";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
-import { useRedirect } from "../../hooks/useRedirect";
+import useRedirect from "../../hooks/useRedirect";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function ArtistCreateForm(props) {
+const ArtistCreateForm = () => {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const currentUser = useCurrentUser();
@@ -24,7 +24,9 @@ function ArtistCreateForm(props) {
     email: "",
     phone: "",
   });
-  const { speciality, hourly_rate, location, email, phone} = artistData;
+  const {
+    speciality, hourly_rate, location, email, phone,
+  } = artistData;
 
   const history = useHistory();
 
@@ -120,7 +122,7 @@ function ArtistCreateForm(props) {
         </Alert>
       ))}
 
-<Form.Group>
+      <Form.Group>
         <Form.Label>Contact number</Form.Label>
         <Form.Control
           type="tel"
@@ -149,6 +151,6 @@ function ArtistCreateForm(props) {
       <Container className={appStyles.Content}>{textFields}</Container>
     </Form>
   );
-}
+};
 
 export default ArtistCreateForm;

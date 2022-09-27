@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import styles from "../../styles/SignInUpForm.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
-
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
@@ -13,7 +9,10 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import axios from "axios";
-import { useRedirect } from "../../hooks/useRedirect";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/SignInUpForm.module.css";
+import useRedirect from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
   useRedirect("loggedIn");
@@ -119,7 +118,9 @@ const SignUpForm = () => {
 
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signin">
-            Already have an account? <span>Sign in</span>
+            Already have an account?
+            {" "}
+            <span>Sign in</span>
           </Link>
         </Container>
       </Col>
@@ -129,7 +130,7 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
+          src="https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"
         />
       </Col>
     </Row>

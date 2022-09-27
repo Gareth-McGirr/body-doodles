@@ -1,14 +1,14 @@
 import React from "react";
-import styles from "../../styles/Post.module.css";
-import btnStyles from "../../styles/Button.module.css";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
 
 import { Link, useHistory } from "react-router-dom";
-import Avatar from "../../components/Avatar";
 import { Button } from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
+import Avatar from "../../components/Avatar";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/Post.module.css";
 
 const Artist = (props) => {
   const {
@@ -24,7 +24,7 @@ const Artist = (props) => {
     reviews_count,
     average_rating,
     isProfilePage,
-    showAll
+    showAll,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -42,16 +42,38 @@ const Artist = (props) => {
             </Link>
           </Media>
         )}
-        <p className="text-center">Speciality: {speciality}</p>
-        <p className="text-center">Location: {location}</p>
-        <p className="text-center">Rate: €{hourly_rate} per hour</p>
-        <p className="text-center">Email: {email}</p>
-        <p className="text-center">Phone: {phone}</p>
         <p className="text-center">
-          Rating:{" "}
-          <Rating readonly={true} initialValue={average_rating} size={25} />
+          Speciality:
+          {speciality}
         </p>
-        <p>{reviews_count} reviews</p>
+        <p className="text-center">
+          Location:
+          {location}
+        </p>
+        <p className="text-center">
+          Rate: €
+          {hourly_rate}
+          {" "}
+          per hour
+        </p>
+        <p className="text-center">
+          Email:
+          {email}
+        </p>
+        <p className="text-center">
+          Phone:
+          {phone}
+        </p>
+        <p className="text-center">
+          Rating:
+          {" "}
+          <Rating readonly initialValue={average_rating} size={25} />
+        </p>
+        <p>
+          {reviews_count}
+          {" "}
+          reviews
+        </p>
         {!is_owner && (
           <Button
             className={btnStyles.Button}
@@ -61,7 +83,7 @@ const Artist = (props) => {
             Leave a review
           </Button>
         )}
-        {showAll &&(
+        {showAll && (
           <Button
             className={btnStyles.Button}
             onClick={() => history.push(`/reviews/${id}`)}

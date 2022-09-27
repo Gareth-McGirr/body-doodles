@@ -1,7 +1,9 @@
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import {
+  React, createContext, useContext, useEffect, useMemo, useState,
+} from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
-import { useHistory } from "react-router";
 import { removeTokenTimestamp, shouldRefreshToken } from "../utils/utils";
 
 export const CurrentUserContext = createContext();
@@ -47,9 +49,7 @@ export const CurrentUserProvider = ({ children }) => {
 
         return config;
       },
-      (err) => {
-        return Promise.reject(err);
-      }
+      (err) => Promise.reject(err),
     );
 
     axiosRes.interceptors.response.use(
@@ -70,7 +70,7 @@ export const CurrentUserProvider = ({ children }) => {
           return axios(err.config);
         }
         return Promise.reject(err);
-      }
+      },
     );
   }, [history]);
 

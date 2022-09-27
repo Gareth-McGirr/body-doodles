@@ -1,14 +1,15 @@
 import React from "react";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from "../../styles/Post.module.css";
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { Link, useHistory } from "react-router-dom";
+import styles from "../../styles/Post.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+
 const Post = (props) => {
   const {
     id,
@@ -48,11 +49,9 @@ const Post = (props) => {
       const { data } = await axiosRes.post("likes/", { post: id });
       setPosts((prevPosts) => ({
         ...prevPosts,
-        results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
-            : post;
-        }),
+        results: prevPosts.results.map((post) => (post.id === id
+          ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+          : post)),
       }));
     } catch (err) {
       // console.log(err);
@@ -64,11 +63,9 @@ const Post = (props) => {
       await axiosRes.delete(`/likes/${like_id}/`);
       setPosts((prevPosts) => ({
         ...prevPosts,
-        results: prevPosts.results.map((post) => {
-          return post.id === id
-            ? { ...post, likes_count: post.likes_count - 1, like_id: null }
-            : post;
-        }),
+        results: prevPosts.results.map((post) => (post.id === id
+          ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+          : post)),
       }));
     } catch (err) {
       // console.log(err);
@@ -99,7 +96,7 @@ const Post = (props) => {
           {is_owner ? (
             <OverlayTrigger
               placement="top"
-              overlay={<Tooltip>You can't like your own post!</Tooltip>}
+              overlay={<Tooltip>You cannot like your own post!</Tooltip>}
             >
               <i className="far fa-heart" />
             </OverlayTrigger>

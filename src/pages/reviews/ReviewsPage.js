@@ -3,23 +3,23 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
+import { useLocation, useParams } from "react-router-dom";
+import InfiniteScroll from "react-infinite-scroll-component";
 import Review from "./Review";
 import Asset from "../../components/Asset";
 
 import appStyles from "../../App.module.css";
 
-import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { useParams } from "react-router";
+
 import Artist from "../artists/Artist";
 
-function ReviewsPage({ message, filter = "" }) {
+const ReviewsPage = ({ message }) => {
   const [reviews, setReviews] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
@@ -39,7 +39,6 @@ function ReviewsPage({ message, filter = "" }) {
       }
     };
 
-    
     const fetchArtist = async () => {
       try {
         const { data } = await axiosReq.get(`/artists/${id}`);
@@ -52,18 +51,14 @@ function ReviewsPage({ message, filter = "" }) {
     setHasLoaded(false);
     fetchArtist();
     fetchReviews();
-    
-
-    
   }, [pathname, currentUser, id]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        
-        <Artist {...artistData} isProfilePage={false}/>
-        
+
+        <Artist {...artistData} isProfilePage={false} />
 
         {hasLoaded ? (
           <>
@@ -95,6 +90,6 @@ function ReviewsPage({ message, filter = "" }) {
       </Col>
     </Row>
   );
-}
+};
 
 export default ReviewsPage;

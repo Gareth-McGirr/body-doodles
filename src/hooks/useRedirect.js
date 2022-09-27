@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
 
-export const useRedirect = (userAuthStatus) => {
+const useRedirect = (userAuthStatus) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -24,3 +24,4 @@ export const useRedirect = (userAuthStatus) => {
     handleMount();
   }, [history, userAuthStatus]);
 };
+export default useRedirect;

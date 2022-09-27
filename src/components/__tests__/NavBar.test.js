@@ -1,4 +1,7 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import React from "react";
+import {
+  expect, test, render, screen, fireEvent,
+} from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { CurrentUserProvider } from "../../contexts/CurrentUserContext";
 import NavBar from "../NavBar";
@@ -7,7 +10,7 @@ test("renders NavBar", () => {
   render(
     <Router>
       <NavBar />
-    </Router>
+    </Router>,
   );
 
   // screen.debug();
@@ -21,7 +24,7 @@ test("renders link to the user profile for a logged in user", async () => {
       <CurrentUserProvider>
         <NavBar />
       </CurrentUserProvider>
-    </Router>
+    </Router>,
   );
 
   const profileAvatar = await screen.findByText("jack2");
@@ -34,7 +37,7 @@ test("renders Sign in and Sign up buttons again on log out", async () => {
       <CurrentUserProvider>
         <NavBar />
       </CurrentUserProvider>
-    </Router>
+    </Router>,
   );
 
   const signOutLink = await screen.findByRole("link", { name: "Sign out" });

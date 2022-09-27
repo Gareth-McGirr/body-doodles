@@ -2,7 +2,7 @@ import { rest } from "msw";
 
 const baseURL = "https://body-doodles-api.herokuapp.com/";
 
-export const handlers = [
+const handlers = [
   rest.get(`${baseURL}dj-rest-auth/user/`, (req, res, ctx) => res(
     ctx.json({
       pk: 2,
@@ -17,3 +17,4 @@ export const handlers = [
   )),
   rest.post(`${baseURL}dj-rest-auth/logout/`, (req, res, ctx) => res(ctx.status(200))),
 ];
+export default handlers;

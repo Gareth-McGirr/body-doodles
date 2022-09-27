@@ -5,16 +5,15 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
+import { useHistory, useParams } from "react-router-dom";
+import { Rating } from "react-simple-star-rating";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useRedirect } from "../../hooks/useRedirect";
-import { useParams } from "react-router";
-import { Rating } from 'react-simple-star-rating'
+import useRedirect from "../../hooks/useRedirect";
 
-function ReviewCreateForm(props) {
+const ReviewCreateForm = () => {
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const { id } = useParams();
@@ -24,15 +23,14 @@ function ReviewCreateForm(props) {
   });
   const { artistId, content } = reviewData;
 
-  
   const history = useHistory();
 
-  const [rating, setRating] = useState(0) // initial rating value
+  const [rating, setRating] = useState(0); // initial rating value
 
   // Catch Rating value
   const handleRating = (rate) => {
-    setRating(rate/20)
-  }
+    setRating(rate / 20);
+  };
 
   const handleChange = (event) => {
     setReviewData({
@@ -48,7 +46,6 @@ function ReviewCreateForm(props) {
     formData.append("artist", artistId);
     formData.append("rating", rating);
     formData.append("content", content);
-    
 
     try {
       await axiosReq.post("/reviews/", formData);
@@ -78,7 +75,7 @@ function ReviewCreateForm(props) {
         </Alert>
       ))} */}
       <Form.Group>
-        <Rating onClick={handleRating}  /* Available Props */ />
+        <Rating onClick={handleRating} /* Available Props */ />
       </Form.Group>
       <Form.Group>
         <Form.Label>Content</Form.Label>
@@ -113,6 +110,6 @@ function ReviewCreateForm(props) {
       <Container className={appStyles.Content}>{textFields}</Container>
     </Form>
   );
-}
+};
 
 export default ReviewCreateForm;

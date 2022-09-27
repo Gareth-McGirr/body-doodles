@@ -2,15 +2,15 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
+import { NavLink } from "react-router-dom";
+import axios from "axios";
 import logo from "../assets/logo.jpg";
 import styles from "../styles/NavBar.module.css";
-import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
-import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
@@ -34,7 +34,8 @@ const NavBar = () => {
       activeClassName={styles.Active}
       to="/posts/create"
     >
-      <i className="fas fa-plus-square"></i>Add post
+      <i className="fas fa-plus-square" />
+      Add post
     </NavLink>
   );
   const loggedInIcons = (
@@ -44,31 +45,36 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/artists"
       >
-        <i class="fas fa-palette"></i>Artists
+        <i className="fas fa-palette" />
+        Artists
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/feed"
       >
-        <i className="fas fa-stream"></i>Feed
+        <i className="fas fa-stream" />
+        Feed
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/liked"
       >
-        <i className="fas fa-heart"></i>Liked
+        <i className="fas fa-heart" />
+        Liked
       </NavLink>
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
         to="/contact/create"
       >
-        <i class="fa-solid fa-file-signature"></i>Contact Us
+        <i className="fa-solid fa-file-signature" />
+        Contact Us
       </NavLink>
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-        <i className="fas fa-sign-out-alt"></i>Sign out
+        <i className="fas fa-sign-out-alt" />
+        Sign out
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -85,14 +91,16 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signin"
       >
-        <i className="fas fa-sign-in-alt"></i>Sign in
+        <i className="fas fa-sign-in-alt" />
+        Sign in
       </NavLink>
       <NavLink
         to="/signup"
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
-        <i className="fas fa-user-plus"></i>Sign up
+        <i className="fas fa-user-plus" />
+        Sign up
       </NavLink>
     </>
   );
@@ -124,7 +132,8 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i className="fas fa-home"></i>Home
+              <i className="fas fa-home" />
+              Home
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}

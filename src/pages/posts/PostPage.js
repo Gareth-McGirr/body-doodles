@@ -4,8 +4,9 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
-import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
+import InfiniteScroll from "react-infinite-scroll-component";
+import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 
@@ -13,13 +14,12 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Comment from "../comments/Comment";
 
-import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 
 import PopularProfiles from "../profiles/PopularProfiles";
 
-function PostPage() {
+const PostPage = () => {
   const { id } = useParams();
   const [post, setPost] = useState({ results: [] });
 
@@ -88,6 +88,6 @@ function PostPage() {
       </Col>
     </Row>
   );
-}
+};
 
 export default PostPage;

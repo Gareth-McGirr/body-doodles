@@ -9,17 +9,16 @@ import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 
+import axios from "axios";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-import axios from "axios";
-
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { setTokenTimestamp } from "../../utils/utils";
-import { useRedirect } from "../../hooks/useRedirect";
+import useRedirect from "../../hooks/useRedirect";
 
-function SignInForm() {
+const SignInForm = () => {
   const setCurrentUser = useSetCurrentUser();
   useRedirect("loggedIn");
 
@@ -105,7 +104,8 @@ function SignInForm() {
         </Container>
         <Container className={`mt-3 ${appStyles.Content}`}>
           <Link className={styles.Link} to="/signup">
-            Don't have an account? <span>Sign up now!</span>
+            Don`&apos;`t have an account?
+            <span>Sign up now!</span>
           </Link>
         </Container>
       </Col>
@@ -115,11 +115,11 @@ function SignInForm() {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"}
+          src="https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"
         />
       </Col>
     </Row>
   );
-}
+};
 
 export default SignInForm;

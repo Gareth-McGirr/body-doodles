@@ -19,7 +19,7 @@ const PopularProfiles = ({ mobile }) => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
-          "/profiles/?ordering=-followers_count"
+          "/profiles/?ordering=-followers_count",
         );
         setProfileData((prevState) => ({
           ...prevState,

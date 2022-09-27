@@ -1,4 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  React, createContext, useContext, useEffect, useState,
+} from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { followHelper, unfollowHelper } from "../utils/utils";
 import { useCurrentUser } from "./CurrentUserContext";
@@ -28,14 +30,14 @@ export const ProfileDataProvider = ({ children }) => {
         ...prevState,
         pageProfile: {
           ...prevState.pageProfile,
-          results: prevState.pageProfile.results.map((profile) =>
-            followHelper(profile, clickedProfile, data.id)
+          results: prevState.pageProfile.results.map(
+            (profile) => followHelper(profile, clickedProfile, data.id),
           ),
         },
         popularProfiles: {
           ...prevState.popularProfiles,
-          results: prevState.popularProfiles.results.map((profile) =>
-            followHelper(profile, clickedProfile, data.id)
+          results: prevState.popularProfiles.results.map(
+            (profile) => followHelper(profile, clickedProfile, data.id),
           ),
         },
       }));
@@ -50,14 +52,14 @@ export const ProfileDataProvider = ({ children }) => {
       setProfileData((prevState) => ({
         ...prevState,
         pageProfile: {
-          results: prevState.pageProfile.results.map((profile) =>
-            unfollowHelper(profile, clickedProfile)
+          results: prevState.pageProfile.results.map(
+            (profile) => unfollowHelper(profile, clickedProfile),
           ),
         },
         popularProfiles: {
           ...prevState.popularProfiles,
-          results: prevState.popularProfiles.results.map((profile) =>
-            unfollowHelper(profile, clickedProfile)
+          results: prevState.popularProfiles.results.map(
+            (profile) => unfollowHelper(profile, clickedProfile),
           ),
         },
       }));
@@ -70,7 +72,7 @@ export const ProfileDataProvider = ({ children }) => {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(
-          `/profiles/?ordering=-followers_count`
+          `/profiles/?ordering=-followers_count`,
         );
         setProfileData((prevState) => ({
           ...prevState,
@@ -84,7 +86,9 @@ export const ProfileDataProvider = ({ children }) => {
   }, [currentUser]);
   return (
     <ProfileDataContext.Provider value={profileData}>
-      <SetProfileDataContext.Provider value={{ setProfileData, handleFollow, handleUnfollow }}>
+      <SetProfileDataContext.Provider
+        value={{ setProfileData, handleFollow, handleUnfollow }}
+      >
         {children}
       </SetProfileDataContext.Provider>
     </ProfileDataContext.Provider>

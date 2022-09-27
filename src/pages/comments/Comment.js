@@ -20,7 +20,7 @@ const Comment = (props) => {
     setComments,
   } = props;
 
-	const [showEditForm, setShowEditForm] = useState(false);
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const handleDelete = async () => {
     try {
@@ -55,13 +55,13 @@ const Comment = (props) => {
           <span className={styles.Date}>{updated_at}</span>
           {showEditForm ? (
             <CommentEditForm
-							id={id}
-							profile_id={profile_id}
-							content={content}
-							profileImage={profile_image}
-							setComments={setComments}
-							setShowEditForm={setShowEditForm}
-						/>
+              id={id}
+              profile_id={profile_id}
+              content={content}
+              profileImage={profile_image}
+              setComments={setComments}
+              setShowEditForm={setShowEditForm}
+            />
           ) : (
             <p>{content}</p>
           )}
