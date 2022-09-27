@@ -1,48 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Profile from "./Profile";
+import { useProfileData } from "../../contexts/ProfileDataContext";
+
 
 const PopularProfiles = ({ mobile }) => {
-  // const [profileData, setProfileData] = useState({
-  //   // we will use the pageProfile later!
-  //   pageProfile: { results: [] },
-  //   // popularProfiles: { results: [] },
-  // });
-  const [popularProfiles, setPopularProfiles] = useState([]);
-  const [pageProfiles, setPageProfiles] = useState([]);
-  // const { popularProfiles } = profileData;
-  const currentUser = useCurrentUser();
-
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data } = await axiosReq.get(
-          "/profiles/?ordering=-followers_count",
-        );
-        // setProfileData((prevState) => ({
-        //   ...prevState,
-        //   popularProfiles: data,
-        // }));
-        setPopularProfiles(data.results);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    handleMount();
-  }, [currentUser, ]);
-
+  const {popularProfiles} = useProfileData();
   return (
     <Container
       className={`${appStyles.Content} ${
         mobile && "d-lg-none text-center mb-3"
       }`}
     >
-      {popularProfiles.results.length ? (
+      {popularProfiles.results ? (
         <>
           <p>Most followed profiles.</p>
           {mobile ? (
@@ -63,5 +35,4 @@ const PopularProfiles = ({ mobile }) => {
     </Container>
   );
 };
-
 export default PopularProfiles;
