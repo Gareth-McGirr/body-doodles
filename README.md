@@ -201,3 +201,43 @@ A star rating component was used to allow users to easily click the number of st
 Stars will light up to reflect the users rating. 
 
 The average rating of the artist is displayed on the artist profile as an average which is calculated by getting the sum of all ratings and dividing by the number of ratings.
+
+<br>
+
+### Future Features
+
+As a future feature, a messaging system will be implemented to allow users to private message artists.
+
+As a future feature I would like to include a gallery area for each artist to show their designs and finished works of art as journeys grouped together. 
+<hr>
+<br>
+
+## The Skeleton Plane
+
+### Wireframes
+
+## The Surface Plane
+
+### Design
+
+#### Colour-Scheme
+
+The background colour for individual componenets is black (#000000).
+
+Icon, headings and border colours are gold (#cca53c).
+
+Main text is white (#ffffff).
+
+The main page background colour is an off shade of white (#f8f8f8).
+<hr>
+<br>
+
+#### Typography
+
+The main font used on the website is "DM Sans".
+<hr>
+<br>
+
+#### Imagery
+
+The images on this website are user uploaded except for the logo which was taken from the royalty free stock website [istockphoto](https://www.istockphoto.com/search/search-by-asset?affiliateredirect=true&assetid=1320[…]dium=affiliate_SP&utm_source=FreeImages&utm_term=letters+bd)
