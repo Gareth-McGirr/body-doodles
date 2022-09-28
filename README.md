@@ -262,3 +262,29 @@ The images on this website are user uploaded except for the logo which was taken
 <hr>
 <br>
 
+## Testing
+<hr>
+<br>
+
+## Deployment
+<hr>
+<br>
+
+## Version Control
+
+The site was created using the Visual Studio Code editor and pushed to github to the remote repository ‘body-doodles’.
+
+The following git commands were used throughout development to push code to the remote repo:
+
+```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.
+
+```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
+
+```git push``` - This command was used to push all committed code to the remote repository on github.
+<hr>
+<br>
+
+
+
+
+
