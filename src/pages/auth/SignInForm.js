@@ -32,6 +32,7 @@ const SignInForm = () => {
 
   const history = useHistory();
 
+  // handles changes to the input fields in the form
   const handleChange = (event) => {
     setSignInData({
       ...signInData,

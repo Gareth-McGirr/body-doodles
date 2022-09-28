@@ -26,7 +26,6 @@ const NavBar = () => {
       setCurrentUser(null);
     } catch (err) {
       setCurrentUser(null);
-      console.log(err);
     }
   };
 

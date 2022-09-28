@@ -35,7 +35,6 @@ const ReviewsPage = ({ message }) => {
         setReviews(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
 
@@ -44,7 +43,6 @@ const ReviewsPage = ({ message }) => {
         const { data } = await axiosReq.get(`/artists/${id}`);
         setArtistData(data);
       } catch (err) {
-        console.log(err);
       }
     };
 

@@ -34,12 +34,15 @@ const SignUpForm = () => {
     });
   };
 
+  // submits the form data to auth api
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
+      // redirects user to sign in page after signing up
       history.push("/signin");
     } catch (err) {
+      // catches any errors returned from authentication or validation
       setErrors(err.response?.data);
     }
   };

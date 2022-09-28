@@ -30,15 +30,17 @@ const ArtistsPage = ({ message, filter = "" }) => {
   useEffect(() => {
     const fetchArtists = async () => {
       try {
+        // get a list of artist objects that match the query in the filter
         const { data } = await axiosReq.get(`/artists/?${filter}search=${query}`);
+        // set the artist state with the returned data from query
         setArtists(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
       }
     };
 
     setHasLoaded(false);
+    // timeout so system doesn't make request until user has stopped typeing
     const timer = setTimeout(() => {
       fetchArtists();
     }, 1000);

@@ -11,7 +11,9 @@ import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import useRedirect from "../../hooks/useRedirect";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+// Form to gather and post data to database for a new artist registration
 const ArtistCreateForm = () => {
+  // redirect to home page if user is not logged in
   useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const currentUser = useCurrentUser();
@@ -48,11 +50,14 @@ const ArtistCreateForm = () => {
     formData.append("phone", phone);
 
     try {
+      // make request to database to create a new artist
       const { data } = await axiosReq.post("/artists/", formData);
+      // add artist id to the users profile
       await axiosRes.put(`/profiles/${id}/`, { artistId: data.id });
+      // goes back to the page the user was on
       history.goBack();
     } catch (err) {
-      // console.log(err);
+      // display any error for form validation
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
