@@ -320,6 +320,10 @@ Most commonly, forks are used to either propose changes to someone else's projec
 
 ## Credits
 
+This  article was used to implement the simple star rating component:   
+* [awran5/react-simple-star-rating](https://github.com/awran5/react-simple-star-rating)
+
+
 ### Content
 
 Logo used was taken from [istockphoto](https://www.istockphoto.com/search/search-by-asset?affiliateredirect=true&assetid=1320[…]dium=affiliate_SP&utm_source=FreeImages&utm_term=letters+bd)
