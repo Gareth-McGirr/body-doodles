@@ -315,6 +315,20 @@ Most commonly, forks are used to either propose changes to someone else's projec
 - On the top right of the page under the header, click the fork button.
 
 - This will create a duplicate of the full project in your GitHub Repository.
+<hr>
+<br>
+
+## Credits
+
+### Content
+
+Logo used was taken from [istockphoto](https://www.istockphoto.com/search/search-by-asset?affiliateredirect=true&assetid=1320[…]dium=affiliate_SP&utm_source=FreeImages&utm_term=letters+bd)
+
+### Acknowledgements
+
+I'd like the thank slack user [Tom_5P](https://github.com/Tom-Ainsworth) for help with setting up eslint configs.
+
+A special thanks to [Mr_Bim_Alumni](https://github.com/MrBim) for his help with help resolving a bug where my artist details were showing on other user profiles.
 
 
 
