@@ -85,3 +85,119 @@ By Epic:
 * As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed
 * As a logged in user I can edit my profile so that I can change my profile picture and bio
 * As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+<hr>
+<br>
+
+## The Structure Plane
+
+## Features:
+
+**Navigation Menu**
+
+A fully responsive navigation menu has been implemented across the website.
+
+This will allow the users to navigate to different pages on the website with ease from any device. Nav items are different depending on the users logged in state to prevent them accessing areas of the application intended for signed in users.
+
+Logged in users:
+
+When a user is logged in the following navigation items are shown:
+
+* Add Post
+* Home
+* Artists
+* Feed
+* Liked
+* Sign Out
+* Users Icon and Username
+
+Logged out users:
+
+* Home
+* Sign In
+* Sign Up
+
+The site logo is displayed on the left side of the navigation at all times.
+
+The navigation icons change to a gold colour when the page is active. This is to indicate to users which page they are currently on.
+
+**Home**
+
+The home page displays user posts in order of newest posts first. These posts are visible to all users regardless of logged in status. This will allow non registered users to get a feel for the content on the site to know whether they are interested in signing up.
+
+Restricted access has been implemented on the posts for users who are not signed in, they will not be able to create a post, like or comment on posts.
+
+Logged in users have full access to post, comment or like. This will help ensure that unregistered users do not spam the website while also ensuring genuine users register to the site.
+
+**Posts**
+
+Registered users will be able to create, edit, update and delete posts.
+
+Only the user who created the post will be able to edit or delete that post. This will ensure that users have full control of their own posts and unauthorized users cannot tamper with them.
+
+A Post button has been implemented in the nav bar in order for logged in users to create a post when they want to share something.
+
+Users can also click the Feed navigation item and this will display only posts from users the person has followed.
+
+Users can click the liked navigation item and display all of the posts they have liked.
+
+**Comments**
+
+Below each post, there will be a comment box available to logged in users. This will allow users to add comments under posts.
+
+A comment count will also be shown under the post, to allow users to see how many people have commented on each post.
+
+A comment or updated time will be displayed in either minutes ago or days ago 
+
+The username and Avatar of the user that created the comment will displayed on each comment
+
+
+
+**Likes**
+
+A heart shaped icon is displayed on each post that allows users to click in order to like the post when the contents appeals to them or unlike the post should they wish to do so. 
+
+A total count of the likes will be displayed on the posts so that users can see the total number of likes.
+
+**Profiles**
+
+Profile pages have been implemented and can be viewed by clicking on a users Avatar that is displayed on a post.
+
+To view a users own profile, they can click their icon from the navigation menu.
+
+If the user is the owner of the profile, they are able to edit the profile via the profile form accessed via the three dot drop down menu on the profile.
+
+The drop down menu also allows the user to edit their user name or password by clicking the menu options and filling in the forms.
+
+If the user is registered as an Artist. The users artist details will also be displayed on their profile page.
+
+**Most followed profiles**
+
+A component showing the most followed users is shown and the user profiles are able to be viewed by clicking on these. On a desktop, the most followed users has 10 users. On a mobile device this is restricted to 4 so that it does not take up too much room as scrolling may become a nuisance. A follow button will also be displayed that will allow the logged in user to follow the target user.
+
+**Artists**
+
+Users are able to register as an artist when they want to show users their information, such as speciality, location and hourly rate and contact details. Users may choose to follow other users who are registered Artists in order to keep up to date with their work.
+
+Users can register as an artist via their profile page by clicking the 3 dots to open a drop down menu. Select register as artist which will direct them to a form where they can fill in their details.
+
+Users can also unregister as an artist by selecting remove as artist button on the profile. This button is only displayed to owners of a profile.
+
+Artist information is able to be viewed on the artists user profile. 
+
+An average rating is diplayed based on the number of reviews and ratings that were given in the reviews. This is displayed as stars on the profile. 
+
+A view reviews button is present on the profile page
+
+A leave a review button is present if the user is not the owner of the profile so they can leave a review on that artist. 
+
+An Artist page has also been implemented to allow users to view all artist details in a list.
+
+**Artist Reviews**
+
+Users are able to leave textual reviews on artists along with a rating out of 5 by filling in the review form that can be accessed by clicking Leave Review on the artists user profile.
+
+A star rating component was used to allow users to easily click the number of stars they wish to give as a rating. 
+
+Stars will light up to reflect the users rating. 
+
+The average rating of the artist is displayed on the artist profile as an average which is calculated by getting the sum of all ratings and dividing by the number of ratings.
