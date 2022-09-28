@@ -241,3 +241,24 @@ The main font used on the website is "DM Sans".
 #### Imagery
 
 The images on this website are user uploaded except for the logo which was taken from the royalty free stock website [istockphoto](https://www.istockphoto.com/search/search-by-asset?affiliateredirect=true&assetid=1320[…]dium=affiliate_SP&utm_source=FreeImages&utm_term=letters+bd)
+<hr>
+<br>
+
+## Technologies
+
+* React
+    * Main framework used to create the user interface
+* Node
+    * Package manager used to install dependencies
+* Eslint
+    * Linting tool used in order to check best practice coding standards
+* Heroku
+    * Used for application hosting
+* Git
+    * Version control software
+* Github
+    * Repository used to store base code and docs
+
+<hr>
+<br>
+
