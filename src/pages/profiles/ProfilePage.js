@@ -66,8 +66,6 @@ const ProfilePage = () => {
           axiosReq.get(`/profiles/${id}/`),
           axiosReq.get(`/posts/?owner__profile=${id}`),
         ]);
-        // console.log('running first setArtistData in fetchData');
-        // setArtistData(null)
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
@@ -75,16 +73,13 @@ const ProfilePage = () => {
         setProfilePosts(profilePosts);
         try {
           const { data } = await axiosReq.get(`/artists/${artistId}/`);
-          console.log("running second setArtistData in fetchData");
           setArtistData(data);
         } catch (err) {
           setArtistData(null);
-          console.log(err);
         }
         setHasLoaded(true);
       } catch (err) {
         setArtistData(null);
-        console.log(err);
       }
     };
     handleMount();
