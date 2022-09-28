@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
+// redirects the user to the home page depending on auth status
 const useRedirect = (userAuthStatus) => {
   const history = useHistory();
 

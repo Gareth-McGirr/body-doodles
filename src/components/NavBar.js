@@ -19,6 +19,7 @@ const NavBar = () => {
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  // function to log user out and reset the currentuser data to null
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -29,6 +30,7 @@ const NavBar = () => {
     }
   };
 
+  // icon to be used in navbar to add a new post  
   const addPostIcon = (
     <NavLink
       className={styles.NavLink}
@@ -39,6 +41,9 @@ const NavBar = () => {
       Add post
     </NavLink>
   );
+
+  // icons that should be rendered only when a user
+  // is logged in
   const loggedInIcons = (
     <>
       <NavLink
@@ -85,6 +90,9 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
+  // icons that should be rendered 
+  // on navbar only when usr is logged out
   const loggedOutIcons = (
     <>
       <NavLink

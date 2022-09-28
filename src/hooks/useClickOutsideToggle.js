@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
+// function to close the dropdown nav menu
+// by checking for a mouse click outside the menu
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);

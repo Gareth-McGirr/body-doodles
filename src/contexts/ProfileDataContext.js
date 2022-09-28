@@ -13,13 +13,15 @@ export const useSetProfileData = () => useContext(SetProfileDataContext);
 
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
-    // we will use the pageProfile later
+    // initialise both states to empty arrays
     pageProfile: { results: [] },
     popularProfiles: { results: [] },
   });
 
+  //get the currently logged in user details
   const currentUser = useCurrentUser();
 
+  // function to add a new follower to a profile 
   const handleFollow = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post("/followers/", {
@@ -42,10 +44,11 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      // console.log(err);
+      
     }
   };
 
+  // function to delete a follower from a profile
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
@@ -64,10 +67,11 @@ export const ProfileDataProvider = ({ children }) => {
         },
       }));
     } catch (err) {
-      // console.log(err);
+
     }
   };
 
+  
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -79,7 +83,7 @@ export const ProfileDataProvider = ({ children }) => {
           popularProfiles: data,
         }));
       } catch (err) {
-        // console.log(err);
+
       }
     };
     handleMount();

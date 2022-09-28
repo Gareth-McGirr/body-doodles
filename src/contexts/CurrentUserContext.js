@@ -32,11 +32,14 @@ export const CurrentUserProvider = ({ children }) => {
   useMemo(() => {
     axiosReq.interceptors.request.use(
       async (config) => {
+        // check if token needs refreshed
         if (shouldRefreshToken()) {
           try {
+            // make a request for new token
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
+              // if token is expired redirect user to signin page
               if (prevCurrentUser) {
                 history.push("/signin");
               }
