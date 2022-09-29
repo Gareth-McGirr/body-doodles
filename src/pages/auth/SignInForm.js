@@ -116,7 +116,7 @@ const SignInForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src="https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"
+          src="https://storage.cloud.google.com/body-doodle-images/formimage/WallpaperDog-20341998.jpg?authuser=1"
         />
       </Col>
     </Row>
