@@ -71,6 +71,12 @@ npm WARN config global `--global`, `--local` are deprecated. Use `--location=glo
 
 Warning: React version not specified in eslint-plugin-react settings. See https://github.com/jsx-eslint/eslint-plugin-react#configuration .</blockquote>
 
+## Validators
+
+All CSS files were individually validated. 1 error was found relating to the scroll bar and the offending line subsequently removed.
+
+![CSS](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/testing/css_validator.PNG)
+
 ## Bugs and their fixes
 
 A memory leak was causing issues with the authentication system as it was continously reloading the popular profiles component. This was fixed by removing duplicate code that was un-needed.
