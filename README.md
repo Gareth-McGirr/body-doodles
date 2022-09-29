@@ -125,6 +125,8 @@ Implementation:
 
 A site favicon was implemented with the sites logo. This will allow users to easily identify Body Doodles when they have multiple tabs open.
 
+![favicon](https://github.com/Gareth-McGirr/body-doodles/blob/main/readme/images/favicon_screenshot.png)
+
 User Story:
 
 `As a logged out user I can see sign in and sign up options so that I can sign in / sign up`
@@ -134,6 +136,7 @@ Implementation:
 Checks were implemented to detect when a user is signed in or signed out and nav items displayed accordingly. This will prevent users from being able to click buttons from the UI in order to reach restricted pages.
 
 Redirects on the URLS was also implemented to ensure users cannot access pages when logged out if they are for logged in users only.
+
 
 User Story:
 
@@ -170,11 +173,15 @@ When a user is logged in the following navigation items are shown:
 * Sign Out
 * Users Icon and Username
 
+![navbar_loggedin_expanded](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/navbar_loggedin_expanded.png)
+
 Logged out users:
 
 * Home
 * Sign In
 * Sign Up
+
+![navbar_loggedout](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/navbar_logged_out.png)
 
 The site logo is displayed on the left side of the navigation at all times.
 
@@ -219,6 +226,8 @@ Implementation:
 
 A post detail page has been added that is visible to all users, this will allw them to see the full post detail and comments.
 
+![post_detail](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/postdetail.png)
+
 
 User Stories:
 
@@ -228,6 +237,8 @@ Implementation:
 
 Logged in users have full access to post, comment, like or unlike. This will help ensure that unregistered users do not spam the website while also ensuring genuine users register to the site.
 
+![post_like_comment](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/post_like_comments.png)
+
 User Story:
 
 `As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created`
@@ -236,6 +247,7 @@ Implementation:
 
 Only the user who created the post will be able to edit or delete that post. This will ensure that users have full control of their own posts and unauthorized users cannot tamper with them.
 
+
 User Story:
 
 `As a logged in user I can create posts so that I can share my images`
@@ -243,6 +255,8 @@ User Story:
 Implementation:
 
 A Post button has been implemented in the nav bar in order for logged in users to create a post when they want to share something.
+
+![post_create](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/post_create.png)
 
 User Story:
 
@@ -268,15 +282,21 @@ Implementation:
 
 A search bar has been added that will allow users to search for keywords so that they can search for content that interests them.
 
+![post_searchbar](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/posts_searchbar.png)
+
 **Comments**
 
 Below each post, there will be a comment box available to logged in users. This will allow users to add comments under posts.
+
+![comment_create](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/comment_create.png)
 
 A comment count will also be shown under the post, to allow users to see how many people have commented on each post.
 
 A comment or updated time will be displayed in either minutes ago or days ago 
 
 The username and Avatar of the user that created the comment will displayed on each comment
+
+![comments_list_under_post](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/comments_list_under_post.png)
 
 **Profiles**
 
@@ -298,6 +318,8 @@ Implementation:
 
 If the user is the owner of the profile, they are able to edit the profile via the profile form accessed via the three dot drop down menu on the profile.
 
+![profile_edit](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/profile_edit.png)
+
 User Story:
 
 `As a logged in user I can update my username and password so that I can change my display name and keep my profile secure`
@@ -306,7 +328,8 @@ Implemenation:
 
 The drop down menu also allows the user to edit their user name or password by clicking the menu options and filling in the forms.
 
-If the user is registered as an Artist. The users artist details will also be displayed on their profile page.
+![profile_change_password](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/profile_change_password.png)
+
 
 User Story:
 
@@ -314,7 +337,9 @@ User Story:
 
 Implementation:
 
-When a user is logged in, their profile image is on display in the top right of the nav. This will allow the user to easily know when they are logged in and which accoung (if they have multiple)
+When a user is logged in, their profile image is on display in the top right of the nav. This will allow the user to easily know when they are logged in and which account (if they have multiple)
+
+![nav_loggedin_Avatar](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/navv_logged_in_Avatar.png)
 
 **Most followed profiles**
 
@@ -328,9 +353,12 @@ User Stories:
 
 `As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed`
 
+
 Implementation:
 
 A component showing the most followed users is shown and the user profiles are able to be viewed by clicking on these. On a desktop, the most followed users has 10 users. On a mobile device this is restricted to 4 so that it does not take up too much room as scrolling may become a nuisance. A follow button will also be displayed that will allow the logged in user to follow the target user.
+
+![most_followed_profiles](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/most_followed_profiles.png)
 
 **Artists**
 
@@ -346,6 +374,8 @@ Users can register as an artist via their profile page by clicking the 3 dots to
 
 Users can also unregister as an artist by selecting remove as artist button on the profile. This button is only displayed to owners of a profile.
 
+![artist_register](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/add_remove_artst.PNG)
+
 User Story:
 
 `As a user, I would like to be able to view artist details so I can find a local artist when I want me ink`
@@ -355,6 +385,10 @@ Implementation:
 Artist information is able to be viewed on the artists user profile. This will allow users to view artists in their area if they want me tattoos.
 
 An Artist page has also been implemented to allow users to view all artist details in a list.
+
+![artist_info_profile](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/artist_info_profile.png)
+
+![artist_info_list](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/artist_info_list.png)
 
 **Artist Reviews**
 
@@ -368,11 +402,15 @@ A leave a review button is present if the user is not the owner of the profile s
 
 Users are able to leave textual reviews on artists along with a rating out of 5 by filling in the review form that can be accessed by clicking Leave Review on the artists user profile.
 
+![artist_review](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/review_artist.png)
+
 A star rating component was used to allow users to easily click the number of stars they wish to give as a rating. 
 
 Stars will light up to reflect the users rating. 
 
 The average rating of the artist is displayed on the artist profile as an average which is calculated by getting the sum of all ratings and dividing by the number of ratings.
+
+![average_rating](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/average_rating.PNG)
 
 **Contact**
 
@@ -383,6 +421,8 @@ User Story:
 Implementation:
 
 A contact form was added to the navigation that will allow users to submit a contact request if they have any issues or queries.
+
+![contact](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/contact.PNG)
 
 <br>
 
