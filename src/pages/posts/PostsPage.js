@@ -34,6 +34,7 @@ const PostsPage = ({ message, filter = "" }) => {
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
+        console.log(err);
       }
     };
 
@@ -48,9 +49,10 @@ const PostsPage = ({ message, filter = "" }) => {
   }, [filter, query, pathname, currentUser]);
 
   return (
-    <Row className="h-100">
+    <Row className="h-100 d-flex justify-content-center">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />
+        <p className="text-center">Most followed profiles.</p>
+        <PopularProfiles />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -88,9 +90,6 @@ const PostsPage = ({ message, filter = "" }) => {
             <Asset spinner />
           </Container>
         )}
-      </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
       </Col>
     </Row>
   );

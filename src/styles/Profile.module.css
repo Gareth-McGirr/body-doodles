@@ -1,3 +1,14 @@
 .WordBreak {
     word-break: break-all;
 }
+
+.Flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Artist {
+    border: 1px solid red;
+}

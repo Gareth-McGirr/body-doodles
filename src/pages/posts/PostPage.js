@@ -37,6 +37,7 @@ const PostPage = () => {
         setPost({ results: [post] });
         setComments(comments);
       } catch (err) {
+        // console.log(err);
       }
     };
 
@@ -44,9 +45,10 @@ const PostPage = () => {
   }, [id]);
 
   return (
-    <Row className="h-100">
+    <Row className="h-100 d-flex justify-content-center">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />
+        <p className="text-center">Most followed profiles.</p>
+        <PopularProfiles />
         <Post {...post.results[0]} setPosts={setPost} postPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
@@ -81,9 +83,6 @@ const PostPage = () => {
             <span>No comments...yet </span>
           )}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
       </Col>
     </Row>
   );

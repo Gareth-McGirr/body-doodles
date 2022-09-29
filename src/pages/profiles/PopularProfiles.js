@@ -10,16 +10,15 @@ const PopularProfiles = ({ mobile }) => {
   const {popularProfiles} = useProfileData();
   return (
     <Container
-      className={`${appStyles.Content} ${
+      className={`${appStyles.ProfileContent} ${
         mobile && "d-lg-none text-center mb-3"
       }`}
     >
       {popularProfiles.results ? (
-        <>
-          <p>Most followed profiles.</p>
+        <> 
           {mobile ? (
             <div className="d-flex justify-content-around">
-              {popularProfiles.results.slice(0, 4).map((profile) => (
+              {popularProfiles.results.slice(0, 8).map((profile) => (
                 <Profile key={profile.id} profile={profile} mobile />
               ))}
             </div>

@@ -8,13 +8,24 @@
 }
 
 .Content {
-    /* background-color: #ffffff; */
     color: white;
     background-color: black;
     padding: 10px;
     border-radius: 10px;
     border: 3px solid #cca53c;
-    /* border-color: #cca53c; */
+    margin-top: 5px;
+}
+
+.ProfileContent {
+    color: black;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow-x: scroll;
+    margin-bottom: 10px;
+    scrollbar-gutter: stable;
 }
 
 .FillerImage {
@@ -71,14 +82,14 @@ figure {
 
 /* scrollbar */
 *::-webkit-scrollbar {
-width: 5px;
+width: 2px;
 }
 *::-webkit-scrollbar-track {
 background: #f1f1f1;
 }
 *::-webkit-scrollbar-thumb {
-background: #888;
+background: #cca53c;
 }
 *::-webkit-scrollbar-thumb:hover {
-background: #555;
+background: #70560f;
 }

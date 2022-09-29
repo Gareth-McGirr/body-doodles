@@ -20,17 +20,14 @@ const Profile = (props) => {
 
   return (
     <div
-      className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}
+      className={`${styles.Flex} my-3 ${mobile && "flex-column"}`}
     >
       <div>
         <Link className="align-self-center d-block" to={`/profiles/${id}`}>
-          <Avatar src={image} height={imageSize} />
+          <Avatar className={`${styles.WordBreak}`} src={image} height={imageSize} />
         </Link>
       </div>
       <div className={`mx-2 flex-column ${styles.WordBreak}`}>
-        {profile.artistId && (
-          <span className="align-self-center d-block"><small>*Artist*</small></span>
-        )}
         <strong>{owner}</strong>
       </div>
       <div className={`text-right ${!mobile && "ml-auto"}`}>
@@ -42,14 +39,14 @@ const Profile = (props) => {
               className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
               onClick={() => handleUnfollow(profile)}
             >
-              unfollow
+              Unfollow
             </Button>
           ) : (
             <Button
               className={`${btnStyles.Button} ${btnStyles.Black}`}
               onClick={() => handleFollow(profile)}
             >
-              follow
+              Follow
             </Button>
           ))}
       </div>

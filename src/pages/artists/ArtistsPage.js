@@ -30,17 +30,15 @@ const ArtistsPage = ({ message, filter = "" }) => {
   useEffect(() => {
     const fetchArtists = async () => {
       try {
-        // get a list of artist objects that match the query in the filter
         const { data } = await axiosReq.get(`/artists/?${filter}search=${query}`);
-        // set the artist state with the returned data from query
         setArtists(data);
         setHasLoaded(true);
       } catch (err) {
+        console.log(err);
       }
     };
 
     setHasLoaded(false);
-    // timeout so system doesn't make request until user has stopped typeing
     const timer = setTimeout(() => {
       fetchArtists();
     }, 1000);
@@ -51,9 +49,10 @@ const ArtistsPage = ({ message, filter = "" }) => {
   }, [filter, query, pathname, currentUser]);
 
   return (
-    <Row className="h-100">
+    <Row className="h-100 d-flex justify-content-center">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />
+        <p className="text-center">Most followed profiles.</p>
+        <PopularProfiles />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -92,9 +91,6 @@ const ArtistsPage = ({ message, filter = "" }) => {
             <Asset spinner />
           </Container>
         )}
-      </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
       </Col>
     </Row>
   );

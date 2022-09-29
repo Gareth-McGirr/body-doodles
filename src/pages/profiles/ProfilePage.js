@@ -167,7 +167,8 @@ const ProfilePage = () => {
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <PopularProfiles mobile />
+        <p className="text-center">Most followed profiles.</p>
+        <PopularProfiles />
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -206,9 +207,6 @@ const ProfilePage = () => {
             <Asset spinner />
           )}
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <PopularProfiles />
       </Col>
     </Row>
   );
