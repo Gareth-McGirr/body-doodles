@@ -85,6 +85,27 @@ By Epic:
 * As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed
 * As a logged in user I can edit my profile so that I can change my profile picture and bio
 * As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+
+**Setup**
+
+* As a user, I would like a favicon on the website so that I can easily know which tab belongs to body doodles
+
+* As a logged out user I can see sign in and sign up options so that I can sign in / sign up
+
+* As a user, I would like a fully responsive navigation menu so that I can easily access the site from any device
+
+**Artists**
+
+* As an artist, I would like to be able to register my details so others can view my work and contact details
+
+* As a user, I would like to be able to rate an artist so that owthers can see my rating and review
+
+* As a user, I would like to be able to view artist details so I can find a local artist when I want me ink
+
+**Contact**
+
+As a user, I would like to be able to contact the site owner in case I have any issues or queries.
+
 <hr>
 <br>
 
