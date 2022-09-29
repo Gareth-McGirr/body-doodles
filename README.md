@@ -18,6 +18,9 @@ This project was developed using agile methodologies by delivering small feature
 All stories were assigned to epics, prioritized under the labels, Must have, should have, could have and assigned to sprints. "Must have" stories were completed first, "should haves" and then finally "could haves". It was done this way to ensure that all core requirements were completed first to give the project a complete feel, with the nice to have features being added should there be capacity.
 
 The Kanban board was created using github projects and can be located [here](https://github.com/users/Gareth-McGirr/projects/1/views/1) and can be viewed to see more information on the project cards. All stories except the documentation tasks have a full set of acceptance criteria in order to define the functionality that marks that story as complete.
+
+![Kanban](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles-api/main/readme/kanban.PNG)
+
 <hr>
 
 ## Epics
@@ -395,6 +398,58 @@ As a future feature I would like to include a gallery area for each artist to sh
 
 ### Wireframes
 
+<details>
+
+<summary>All Wireframe Images</summary>
+
+Full size wireframes available [here](https://github.com/Gareth-McGirr/body-doodles/tree/main/readme/wireframes)
+
+Home / Posts
+
+![Home / Posts](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/post.png)
+
+Contact
+
+![Contact](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/Contact.png)
+
+Feed
+
+![Feed](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/Feed.png)
+
+Liked
+
+![Liked](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/Liked.png)
+
+Profiles
+
+![Profiles](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/Profiles.png)
+
+Artist List
+
+![Artist List](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/artist-list.png)
+
+Artist Profile
+
+![Artist Profile](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/artist-profile.png)
+
+Create Artist & Edit Artist
+
+![Create Artist](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/create-artist.png)
+
+Create Post & Edit Post
+
+![Create Post](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/wireframes/create-post.png)
+
+Sign In
+
+![Sign In](https://github.com/Gareth-McGirr/body-doodles/blob/main/readme/wireframes/sign-in.png)
+
+Sign Up
+
+![Sign Up](https://github.com/Gareth-McGirr/body-doodles/blob/main/readme/wireframes/sign-up.png)
+
+</details>
+
 ## The Surface Plane
 
 ### Design
@@ -446,6 +501,23 @@ The images on this website are user uploaded except for the logo which was taken
 <br>
 
 ## Deployment
+## Heroku Deployment
+
+The site was deployed to Heroku. The steps to deploy are as follows:
+
+* Navigate to heroku and create an account
+* Click the new button in the top right corner
+* Select create new app
+* Enter app name
+* Select region and click create app
+* Click the resources tab and search for Heroku Postgres
+* Select hobby dev and continue
+
+* Click the deploy tab
+* Scroll down to Connect to GitHub and sign in / authorize when prompted
+* In the search box, find the repositoy you want to deploy and click connect
+* Scroll down to Manual deploy and choose the main branch
+* Click deploy
 <hr>
 <br>
 
@@ -507,14 +579,12 @@ This  article was used to implement the simple star rating component:
 
 Logo used was taken from [istockphoto](https://www.istockphoto.com/search/search-by-asset?affiliateredirect=true&assetid=1320[…]dium=affiliate_SP&utm_source=FreeImages&utm_term=letters+bd)
 
+Sign up & Sign in images taken from [wallpaper.dog](https://wallpaper.dog/traditional-tattoo-wallpapers)
+
 ### Acknowledgements
 
 I'd like the thank slack user [Tom_5P](https://github.com/Tom-Ainsworth) for help with setting up eslint configs.
 
 A special thanks to [Mr_Bim_Alumni](https://github.com/MrBim) for his help with help resolving a bug where my artist details were showing on other user profiles.
 
-
-
-
-
-
+Thanks to [Sean](https://github.com/nazarja) for also helping fix a memory leak.
