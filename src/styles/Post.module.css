@@ -7,6 +7,20 @@
     text-align: center;
 }
 
+
+.Link {
+    padding: 5px;
+    color: white;
+}
+
+.Link:hover{
+    color: #cca53c;
+}
+
+.Active i {
+color: #cca53c;
+}
+
 .Post figure,
     h5 {
     margin: 0 0;
