@@ -6,14 +6,13 @@ const handlers = [
   // mocks a request to get the logged in user
   rest.get(`${baseURL}dj-rest-auth/user/`, (req, res, ctx) => res(
     ctx.json({
-      pk: 2,
-      username: "jack2",
-      email: "",
-      first_name: "",
-      last_name: "",
-      profile_id: 2,
-      profile_image:
-          "https://storage.googleapis.com/body-doodle-images/profile_images/parrot-3601194__340_2.webp?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=body-doodle-cs%40body-doodles.iam.gserviceaccount.com%2F20220921%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20220921T142050Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=8a226538458f55547db32a4701fbfc53a5a18d655987092c7b376a7ddaef080db3fa5905777a6fd1b56d778dd284c98d7f36bbea67be9e7facd5a24e27609f1f5f8c120656ff5a2546a1437a0c3eca8cce9ed24c80efe1ad93d770426827443f54918a39d0ff875bee819b499368a4b9aacea3b14bf6afd8a3ce41073b1b3e87c98941c7ff372b1c2f5bb78ec672986ec3ed9bae10ccc897bdfd221f075baa04bf995cfcfce0cdd0097017884a5a3b3bfa2799dc3b7b550a540a2239deb69625e230ef2a8101ad2df328b10b485c72f8cd69322aee316baf669542f9985b49506c8906682821e303a5e7687142fdf79edda0c9d503cba63ca213611c2982a09e",
+      "pk": 5,
+      "username": "jack2",
+      "email": "",
+      "first_name": "",
+      "last_name": "",
+      "profile_id": 5,
+      "profile_image": "https://storage.googleapis.com/body-doodle-images/profile_images/default_profile.jpg?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=body-doodle-cs%40body-doodles.iam.gserviceaccount.com%2F20220929%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20220929T024254Z&X-Goog-Expires=86400&X-Goog-SignedHeaders=host&X-Goog-Signature=3f32bc0609e6cdfed57128f64b9cb590da2902f18c53322e9d589f786eed93dd01feb33db79b1a6a493423a4ce1869d2432e18ae53f051c1066fe2bd28f3c2cc6a15fe0e26a528eda327b47e593dfdd35a8efbf38f1069c6eabf4c9956971cb43333aab7757d45adbf88b140077fade7667bc709b254da9a59f4704299b04aeeb2bc63c4eb37609c0678ab87c3aac59b4312fb93e4b507108b5ced2778c4c75833da3ee418e02ba78f0c79095ea155893028003996f312135749103066b262739f6765e98cf05acef5f64a19ec8fc9ea80e1f6a585ff578ee78085fe50d488dcf5a0315e8681de17ac340fab766b242d66c5d565c00574c65d578313c650e15d"
     }),
   )),
   // mocks a request to log a user out
