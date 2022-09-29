@@ -133,7 +133,7 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src="https://storage.cloud.google.com/body-doodle-images/formimage/WallpaperDog-20341998.jpg?authuser=1"
+          src="https://storage.googleapis.com/body-doodle-images/formimage/WallpaperDog-20341998.jpg"
         />
       </Col>
     </Row>
