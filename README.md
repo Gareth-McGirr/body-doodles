@@ -2,7 +2,7 @@
 
 Body Doodles is a social media platform for Tattoo Artists and ink lovers. Users are able to share their tattoo's, designs they have made or like as well as allowing Artists to showcase their work.
 
-MockUp Here
+![Mockup](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/mockup.PNG)
 
 ## The Strategy Plane
 
@@ -497,6 +497,8 @@ The images on this website are user uploaded except for the logo which was taken
 <br>
 
 ## Testing
+
+Testing can be found in the [TESTING.md file](https://github.com/Gareth-McGirr/body-doodles/blob/main/TESTING.md)
 <hr>
 <br>
 
