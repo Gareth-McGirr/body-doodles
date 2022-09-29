@@ -174,8 +174,8 @@ const ProfilePage = () => {
             <>
               {mainProfile}
               {profile?.artistId && is_owner && (
-                <Button className={btnStyles.Button} onClick={handleShow}>
-                  remove as artist
+                <Button className={`${btnStyles.Button} mb-2`} onClick={handleShow}>
+                  Remove as artist
                 </Button>
               )}
               <Modal show={show} onHide={handleClose}>
