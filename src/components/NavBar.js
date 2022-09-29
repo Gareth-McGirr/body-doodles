@@ -139,6 +139,7 @@ const NavBar = () => {
               exact
               className={styles.NavLink}
               activeClassName={styles.Active}
+              aria-label="Home"
               to="/"
             >
               <i className="fas fa-home" />

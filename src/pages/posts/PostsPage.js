@@ -60,6 +60,7 @@ const PostsPage = ({ message, filter = "" }) => {
         >
           <Form.Control
             value={query}
+            aria-label="Search posts"
             onChange={(event) => setQuery(event.target.value)}
             type="text"
             className="mr-sm-2"
