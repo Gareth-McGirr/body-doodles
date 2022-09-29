@@ -165,7 +165,7 @@ const ProfilePage = () => {
   );
 
   return (
-    <Row>
+    <Row className="d-flex justify-content-center">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p className="text-center">Most followed profiles.</p>
         <PopularProfiles />
