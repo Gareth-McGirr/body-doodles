@@ -63,7 +63,6 @@ By Epic:
 * As a logged in user I can like a post so that I can show my support for the posts that interest me
 * As a user, I can search for posts with keywords, so that I can find the posts and user profiles I am most interested in.
 * As a user I can view the details of a single post so that I can learn more about it
-* As a user I can view the post page so that I can read the comments about the post
 
 **Comments**
 
@@ -104,7 +103,7 @@ By Epic:
 
 **Contact**
 
-As a user, I would like to be able to contact the site owner in case I have any issues or queries.
+* As a user, I would like to be able to contact the site owner in case I have any issues or queries.
 
 <hr>
 <br>
@@ -113,7 +112,44 @@ As a user, I would like to be able to contact the site owner in case I have any 
 
 ## Features:
 
+**Setup**
+
+User Story:
+
+`As a user, I would like a favicon on the website so that I can easily know which tab belongs to body doodles`
+
+Implementation:
+
+A site favicon was implemented with the sites logo. This will allow users to easily identify Body Doodles when they have multiple tabs open.
+
+User Story:
+
+`As a logged out user I can see sign in and sign up options so that I can sign in / sign up`
+
+Implementation:
+
+Checks were implemented to detect when a user is signed in or signed out and nav items displayed accordingly. This will prevent users from being able to click buttons from the UI in order to reach restricted pages.
+
+Redirects on the URLS was also implemented to ensure users cannot access pages when logged out if they are for logged in users only.
+
+User Story:
+
+`As a user, I would like a fully responsive navigation menu so that I can easily access the site from any device`
+
+Implementation:
+
+A navigation menu was implemented than collapses into a hamburger menu on smaller devices.
+This will ensure that no navigation items overlap and users can access and navigate the site from any size device.
+
 **Navigation Menu**
+
+User Stories:
+
+` As a logged out user I can see sign in and sign up options so that I can sign in / sign up`
+
+`As a user, I would like a fully responsive navigation menu so that I can easily access the site from any device`
+
+Implementation:
 
 A fully responsive navigation menu has been implemented across the website.
 
@@ -143,23 +179,91 @@ The navigation icons change to a gold colour when the page is active. This is to
 
 **Home**
 
+User Story:
+
+`As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content`
+
+Implementation:
+
 The home page displays user posts in order of newest posts first. These posts are visible to all users regardless of logged in status. This will allow non registered users to get a feel for the content on the site to know whether they are interested in signing up.
 
 Restricted access has been implemented on the posts for users who are not signed in, they will not be able to create a post, like or comment on posts.
 
-Logged in users have full access to post, comment or like. This will help ensure that unregistered users do not spam the website while also ensuring genuine users register to the site.
 
 **Posts**
 
-Registered users will be able to create, edit, update and delete posts.
+User Story:
+
+`As a user I can keep scrolling through the images on the site, that are loaded for me automatically so that I don't have to click on "next page"`
+
+Implementation:
+
+Infinite scrolling was implemented to load 10 posts at a time and when user reaches the end of the scroll, it will load 10 more and so on. This will allow for optimal load times to enhance viewing pleasure.
+
+User Story:
+
+`As a user I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content`
+
+Implementaton:
+
+The posts page, feed and liked pages are all ordered by newest content first. This will prevent users from being shown content they have already seen at the top and reduce the need for them to 'search' for new content.
+
+User Story:
+
+`As a user I can view the details of a single post so that I can learn more about it`
+
+Implementation:
+
+A post detail page has been added that is visible to all users, this will allw them to see the full post detail and comments.
+
+
+User Stories:
+
+`As a logged in user I can like a post so that I can show my support for the posts that interest me`
+
+Implementation:
+
+Logged in users have full access to post, comment, like or unlike. This will help ensure that unregistered users do not spam the website while also ensuring genuine users register to the site.
+
+User Story:
+
+`As a post owner I can edit my post title and description so that I can make corrections or update my post after it was created`
+
+Implementation:
 
 Only the user who created the post will be able to edit or delete that post. This will ensure that users have full control of their own posts and unauthorized users cannot tamper with them.
 
+User Story:
+
+`As a logged in user I can create posts so that I can share my images`
+
+Implementation:
+
 A Post button has been implemented in the nav bar in order for logged in users to create a post when they want to share something.
+
+User Story:
+
+`As a logged in user I can view content filtered by users I follow so that I can keep up to date with what they are posting about`
+
+Implementation:
 
 Users can also click the Feed navigation item and this will display only posts from users the person has followed.
 
+User Story:
+
+`As a logged in user I can view the posts I liked so that I can find the posts I enjoy the most`
+
+Implementation:
+
 Users can click the liked navigation item and display all of the posts they have liked.
+
+User Story:
+
+`As a user, I can search for posts with keywords, so that I can find the posts and user profiles I am most interested in.`
+
+Implementation:
+
+A search bar has been added that will allow users to search for keywords so that they can search for content that interests them.
 
 **Comments**
 
@@ -171,31 +275,67 @@ A comment or updated time will be displayed in either minutes ago or days ago
 
 The username and Avatar of the user that created the comment will displayed on each comment
 
-
-
-**Likes**
-
-A heart shaped icon is displayed on each post that allows users to click in order to like the post when the contents appeals to them or unlike the post should they wish to do so. 
-
-A total count of the likes will be displayed on the posts so that users can see the total number of likes.
-
 **Profiles**
+
+User Story:
+
+`As a user I can view other users profiles so that I can see their posts and learn more about them`
+
+Implementation:
 
 Profile pages have been implemented and can be viewed by clicking on a users Avatar that is displayed on a post.
 
 To view a users own profile, they can click their icon from the navigation menu.
 
+User Stories:
+
+`As a logged in user I can edit my profile so that I can change my profile picture and bio`
+
+Implementation:
+
 If the user is the owner of the profile, they are able to edit the profile via the profile form accessed via the three dot drop down menu on the profile.
+
+User Story:
+
+`As a logged in user I can update my username and password so that I can change my display name and keep my profile secure`
+
+Implemenation:
 
 The drop down menu also allows the user to edit their user name or password by clicking the menu options and filling in the forms.
 
 If the user is registered as an Artist. The users artist details will also be displayed on their profile page.
 
+User Story:
+
+`As a user I can tell if I am logged in or not so that I can log in if I need to`
+
+Implementation:
+
+When a user is logged in, their profile image is on display in the top right of the nav. This will allow the user to easily know when they are logged in and which accoung (if they have multiple)
+
 **Most followed profiles**
+
+User Stories:
+
+`As a user I can view all the posts by a specific user so that I can catch up on their latest posts, or decide I want to follow them`
+
+`As a user I can see a list of the most followed profiles so that I can see which profiles are popular`
+
+`As a user I can view statistics about a specific user: bio, number of posts, follows and users followed so that I can learn more about them`
+
+`As a logged in user I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed`
+
+Implementation:
 
 A component showing the most followed users is shown and the user profiles are able to be viewed by clicking on these. On a desktop, the most followed users has 10 users. On a mobile device this is restricted to 4 so that it does not take up too much room as scrolling may become a nuisance. A follow button will also be displayed that will allow the logged in user to follow the target user.
 
 **Artists**
+
+User Story:
+
+`As an artist, I would like to be able to register my details so others can view my work and contact details`
+
+Implementation: 
 
 Users are able to register as an artist when they want to show users their information, such as speciality, location and hourly rate and contact details. Users may choose to follow other users who are registered Artists in order to keep up to date with their work.
 
@@ -203,17 +343,25 @@ Users can register as an artist via their profile page by clicking the 3 dots to
 
 Users can also unregister as an artist by selecting remove as artist button on the profile. This button is only displayed to owners of a profile.
 
-Artist information is able to be viewed on the artists user profile. 
+User Story:
 
-An average rating is diplayed based on the number of reviews and ratings that were given in the reviews. This is displayed as stars on the profile. 
+`As a user, I would like to be able to view artist details so I can find a local artist when I want me ink`
 
-A view reviews button is present on the profile page
+Implementation:
 
-A leave a review button is present if the user is not the owner of the profile so they can leave a review on that artist. 
+Artist information is able to be viewed on the artists user profile. This will allow users to view artists in their area if they want me tattoos.
 
 An Artist page has also been implemented to allow users to view all artist details in a list.
 
 **Artist Reviews**
+
+User Story:
+
+``As a user, I would like to be able to rate an artist so that owthers can see my rating and review`
+
+Implementation:
+
+A leave a review button is present if the user is not the owner of the profile so they can leave a review on that artist. 
 
 Users are able to leave textual reviews on artists along with a rating out of 5 by filling in the review form that can be accessed by clicking Leave Review on the artists user profile.
 
@@ -222,6 +370,16 @@ A star rating component was used to allow users to easily click the number of st
 Stars will light up to reflect the users rating. 
 
 The average rating of the artist is displayed on the artist profile as an average which is calculated by getting the sum of all ratings and dividing by the number of ratings.
+
+**Contact**
+
+User Story:
+
+`As a user, I would like to be able to contact the site owner in case I have any issues or queries.`
+
+Implementation:
+
+A contact form was added to the navigation that will allow users to submit a contact request if they have any issues or queries.
 
 <br>
 
