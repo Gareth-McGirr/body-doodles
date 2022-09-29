@@ -55,14 +55,14 @@ const CommentEditForm = (props) => {
           onClick={() => setShowEditForm(false)}
           type="button"
         >
-          cancel
+          Cancel
         </button>
         <button
           className={styles.Button}
           disabled={!content.trim()}
           type="submit"
         >
-          save
+          Save
         </button>
       </div>
     </Form>

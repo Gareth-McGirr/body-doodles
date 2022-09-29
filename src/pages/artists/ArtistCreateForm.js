@@ -143,10 +143,10 @@ const ArtistCreateForm = () => {
       ))}
 
       <Button className={btnStyles.Button} onClick={() => history.goBack()}>
-        cancel
+        Cancel
       </Button>
       <Button className={btnStyles.Button} type="submit">
-        create
+        Create
       </Button>
     </div>
   );
