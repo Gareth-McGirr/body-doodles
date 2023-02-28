@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-const baseURL = "https://body-doodles-api.herokuapp.com/";
+const baseURL = "https://body-doodles-api.onrender.com/";
 
 const handlers = [
   // mocks a request to get the logged in user
