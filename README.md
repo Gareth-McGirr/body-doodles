@@ -1,6 +1,9 @@
 # Body Doodles
 
 Body Doodles is a social media platform for Tattoo Artists and ink lovers. Users are able to share their tattoo's, designs they have made or like as well as allowing Artists to showcase their work.
+<br>
+The live link can be found here: [Live Site - Sizzle and Steak](https://body-doodles.onrender.com/)
+<br>
 
 ![Mockup](https://raw.githubusercontent.com/Gareth-McGirr/body-doodles/main/readme/images/mockup.JPG)
 
@@ -561,6 +564,8 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 * Scroll down to Manual deploy and choose the main branch
 * Click deploy
 <hr>
+<br>
+The live link can be found here: [Live Site - Sizzle and Steak](https://body-doodles.onrender.com/)
 <br>
 
 ## Version Control
